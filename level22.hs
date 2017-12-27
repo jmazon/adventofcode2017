@@ -1,7 +1,4 @@
 {-# LANGUAGE LambdaCase #-}
-
-module Main where
-
 import qualified Data.IntMap.Strict as M
 import Control.Arrow
 

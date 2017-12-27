@@ -1,6 +1,6 @@
 import Data.Ord
-import Data.Foldable
 import Data.Array
+import Data.Foldable
 import qualified Data.Map.Strict as M
 main = interact $ show . solve . parse
 parse l = listArray (0,n-1) xs where

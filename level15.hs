@@ -9,6 +9,6 @@ part1 = count 40000000 (genA startA) (genB startB)
 part2 = count 5000000 (multiplesOf 4 (genA startA))
                       (multiplesOf 8 (genB startB))
 main = print part1 >> print part2
-
+-- Those are the statement's examples:
 (startA,startB) = (65,8921)
 

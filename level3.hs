@@ -1,4 +1,6 @@
 import qualified Data.Map.Strict as M
+import Control.Arrow
+main = interact $ show . (part1 &&& part2) . read
 
 -- so I thought this was math
 part1 n = go (n-1) 1 0 where
@@ -11,8 +13,8 @@ part1 n = go (n-1) 1 0 where
 -- when really, it's bruteforce
 part2 n = go (M.singleton (0,0) 1) (1,0) where
   go spiral (x,y)
-    | next > n  = [next]
-    | otherwise = next:go (M.insert (x,y) next spiral) (x+dx,y+dy)
+    | next > n  = next
+    | otherwise = go (M.insert (x,y) next spiral) (x+dx,y+dy)
     where
       next = sum $ map (\k -> M.findWithDefault 0 k spiral)
         [(x+1,y),(x+1,y+1),(x,y+1),(x-1,y+1)

@@ -7,7 +7,7 @@ import qualified Data.Map as M
 main = do
   prg <- parse <$> getContents
   print $ snd $ evalRWS prg () M.empty
-  -- part 2 with "pencil and paper"
+  putStrLn "ad-hoc part 2, hand-decompiling, then bash/factor/sed"
 
 -- Simplified from day 18:
 parse i = head is where

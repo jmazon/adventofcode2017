@@ -1,11 +1,9 @@
 {-# LANGUAGE FlexibleContexts #-}
 
-module Main where
-
 import Data.Array.ST
 import Control.Monad.ST
-
-main = interact $ show . solve step2 . map read . lines
+import Control.Arrow
+main = interact $ show . (solve step1 &&& solve step2) . map read . lines
 
 solve step xs = runST $ do
     a <- newListArray (0,n-1) xs :: ST s (STUArray s Int Int)
@@ -17,7 +15,6 @@ solve step xs = runST $ do
           writeArray a i (step v)
           go a (i + v) $! c+1
 
-step1,step2 :: Int -> Int
 step1 = succ
 step2 i | i >= 3 = i-1
         | otherwise = i+1

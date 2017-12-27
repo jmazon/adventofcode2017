@@ -1,3 +1,4 @@
+-- Converted from puzzle input:
 start = A
 diag = 12172063
 
@@ -14,6 +15,7 @@ transition E True  = (True,left,F)
 transition F False = (True,left,E)
 transition F True  = (True,right,A)
 
+-- Generic code below:
 data S = A | B | C | D | E | F
 data M = M { mState :: !S, mLeft :: [Bool], mFocus :: !Bool, mRight :: [Bool] }
 
