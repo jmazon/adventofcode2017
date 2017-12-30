@@ -20,11 +20,11 @@ solve ns = (i,weight) where
   base@((i,_),_,_) = v2n $ head $ topSort g
   (g,v2n,k2v) = graphFromEdges $ snd $ mapAccumL makeNode M.empty ns
   makeNode m (i,w,is) = (m',((i,w),k,ks))
-    where (m',(k:ks)) = mapAccumL intern m (i:is)
+    where (m',k:ks) = mapAccumL intern m (i:is)
 
   Left weight = search base
   search ((_,w),_,ks) = do
-    ws <- mapM search $ map v2n $ catMaybes $ map k2v ks
+    ws <- mapM (search . v2n) $ mapMaybe k2v ks
     case intruder ws of
       Nothing      -> pure (w + sum ws)
       Just (nw,iw) -> Left (inw + nw - iw)

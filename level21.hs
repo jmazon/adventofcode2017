@@ -38,9 +38,8 @@ step m g | even s = array ((0,0),(s2-1,s2-1)) $
 data Key = Pat2 !Int | Pat3 !Int deriving (Eq,Ord)
 parse = M.fromList . concatMap rule . lines where
   rule l = let [pat,_,out] = words l
-           in map (flip (,) (readPat out)) $
-              map (bits2key . concat) $
-              map ($ pat2bitss pat) transforms
+           in map ( flip (,) (readPat out) . bits2key .
+                    concat . ($ pat2bitss pat) ) transforms
   transforms = (.) <$> [id,transpose] <*>
               ((.) <$> [id,reverse] <*> [id,map reverse])
 readPat l = listArray bs $ map ((== '#') . (l !!)) is where

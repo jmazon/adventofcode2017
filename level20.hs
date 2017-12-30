@@ -1,6 +1,6 @@
 import           Data.List
 import           Data.Ord      (comparing)
-import           Data.Maybe    (catMaybes)
+import           Data.Maybe    (mapMaybe)
 import           Data.Function (on)
 import           Control.Arrow ((&&&))
 import           Text.Parsec
@@ -62,8 +62,8 @@ collision o1@(P i1 p1 v1 a1) o2@(P i2 p2 v2 a2) =
   partialCollide f = solve (fromIntegral (f a2 - f a1) / 2)
                            (fromIntegral (2*f v2 + f a2 - 2*f v1 - f a1) / 2)
                            (fromIntegral (f p2 - f p1))
-  ts = nub $ filter (>= 0) $ foldl1 intersect $ map (map round) $
-       catMaybes $ map partialCollide [vX,vY,vZ]
+  ts = nub $ filter (>= 0) $ foldl1 intersect $
+       map (map round) $ mapMaybe partialCollide [vX,vY,vZ]
   -- solve works on Double, so verify ensures only integral solutions are kept
   verify t | p1 == p2 = [(t,p1)]
            | otherwise = []

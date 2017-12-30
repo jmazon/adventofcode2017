@@ -5,6 +5,6 @@ group d = char '{' *> groupElement d <* char '}'
 groupElement d = ((d+) . sum *** sum) . unzip <$>
                  sepBy (group (d+1) <|> garbage) (char ',')
 garbage = char '<' *> garbageElement <* char '>'
-garbageElement = ((,) 0) . sum <$>
+garbageElement = (,) 0 . sum <$>
                  many ( (char '!' *> anyChar *> pure 0) <|>
                         (noneOf ">" *> pure 1) )

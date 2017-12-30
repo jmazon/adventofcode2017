@@ -8,10 +8,10 @@ parse = words . map commaToSpace where commaToSpace ',' = ' '
                                        commaToSpace  x  =  x
 
 dance xs ('s':s) = r ++ l where (l,r) = splitAt (length xs - read s) xs
-dance xs ('x':ds) = let (a,(_:b)) = break (not . isDigit) ds
-                    in dance xs ['p',xs !! (read a),'/',xs !! (read b)]
-dance xs ['p',a,_,b] = map f xs where
-  f c = if c == a then b else if c == b then a else c
+dance xs ('x':ds) = let (a,_:b) = span isDigit ds
+                    in dance xs ['p',xs !! read a,'/',xs !! read b]
+dance xs ['p',a,_,b] = map f xs
+  where f c | c == a = b | c == b = a | otherwise = c
 dance _ o = error o
 
 p0 = ['a'..'p']
@@ -28,8 +28,8 @@ part2 ds = pb where
     go i = i' where Just i' = elemIndex (ps !! i) p0
 
   applyOrbit is = is !! (1000000000 `mod` length is)
-  prgb = map (p0 !!) $ map applyOrbit prgOrbits
-  pb = map (prgb !!) $ map applyOrbit posOrbits
+  prgb = map ((p0 !!) .applyOrbit) prgOrbits
+  pb = map ((prgb !!) . applyOrbit) posOrbits
 
 unCycle = go [] where
   go acc (x:xs) | x `elem` acc = []

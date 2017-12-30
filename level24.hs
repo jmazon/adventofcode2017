@@ -12,7 +12,7 @@ main = interact $ show . (solve snd &&& solve id) . parse
 
 parse i = listArray (0,length ls - 1) $ map f ls where
   ls = lines i
-  f l = (read a,read b) where (a,(_:b)) = break (== '/') l
+  f l = (read a,read b) where (a,_:b) = break (== '/') l
 
 solve f ps = evalState (go 0 bs0) M.empty where
   bs0 = 2^length (elems ps) - 1 :: Int
@@ -23,7 +23,7 @@ solve f ps = evalState (go 0 bs0) M.empty where
       Nothing -> do
         let candidates = [ (i,at') | i <- indices ps, testBit bs i
                                      , at' <- other (ps!i) at ]
-        m <- liftM (maximumBy (comparing f) . ((0,0):)) $
+        m <- fmap (maximumBy (comparing f) . ((0,0):)) $
              forM candidates $ \(i,at') ->
              ((+1) *** (at+at'+)) <$> go at' (clearBit bs i)
         modify (M.insert (at,bs) m)

@@ -8,8 +8,8 @@ import qualified Data.Map.Strict as M
 main = interact $ format . scanl' solve M.empty . parse
 
 parse = map f . lines where
-  f l = ( (ir,(readArith io (read ii)))
-        , (cr,(readRel   co (read ci))) ) where
+  f l = ( (ir,readArith io (read ii))
+        , (cr,readRel   co (read ci)) ) where
     [ir,io,ii,cr,co,ci] = tail $ getAllTextSubmatches $
       l =~ "([a-z]+) (inc|dec) (-?[0-9]+) if ([a-z]+) ([<>=!]+) (-?[0-9]+)"
   readArith "inc" = (+)

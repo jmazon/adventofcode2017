@@ -18,7 +18,7 @@ main = do
   mainIO1 i
   main2 i
 
-data Rcv = Rcv Int deriving Show
+newtype Rcv = Rcv Int deriving Show
 instance Exception Rcv
 
 mainPure1 i = do

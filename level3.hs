@@ -4,7 +4,7 @@ main = interact $ show . (part1 &&& part2) . read
 
 -- so I thought this was math
 part1 n = go (n-1) 1 0 where
-  go n r p | n <= p' = (r+abs (n `mod` s - hs))
+  go n r p | n <= p' = r + abs (n `mod` s - hs)
            | otherwise = go (n-p') (r+1) p'
     where p' = p + 8
           s = p' `div` 4

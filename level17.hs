@@ -7,6 +7,6 @@ part1 s = go 1 [0] where
 part2 s = go 1 0 (-42) where
     go 50000001 i a = a
     go n i a = go (n+1) i' $! if i' == 0 then n else a
-        where i' = ((i + s+1) `mod` n)
+        where i' = (i + s+1) `mod` n
 
 main = interact $ show . (part1 &&& part2) . read
