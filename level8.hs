@@ -1,9 +1,9 @@
 {-# LANGUAGE FlexibleContexts #-}
 
+import qualified Data.Map.Strict as M
 import           Data.List        (scanl')
 import           Text.Regex.Posix ((=~),getAllTextSubmatches)
 import           Control.Arrow    ((&&&))
-import qualified Data.Map.Strict as M
 
 main = interact $ format . scanl' solve M.empty . parse
 

@@ -16,5 +16,5 @@ solve step xs = runST $ do
           go a (i + v) $! c+1
 
 step1 = succ
-step2 i | i >= 3 = i-1
-        | otherwise = i+1
+step2 i | i >= 3    = i - 1
+        | otherwise = i + 1

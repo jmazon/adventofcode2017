@@ -6,7 +6,7 @@ import qualified Data.Map as M
 
 main = do
   prg <- parse <$> getContents
-  print $ snd $ evalRWS prg () M.empty
+  print $ getSum $ snd $ evalRWS prg () M.empty
   putStrLn "ad-hoc part 2, hand-decompiling, then bash/factor/sed"
 
 -- Simplified from day 18:

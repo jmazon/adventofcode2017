@@ -1,0 +1,134 @@
+name:                adventofcode2017
+version:             0.1.0.0
+synopsis:            My code the the 2017 edition of Advent of Code
+description:         Looks like it's a habit now.
+license:             AllRightsReserved
+author:              Jean-Baptiste Mazon
+copyright:           © 2017
+build-type:          Simple
+cabal-version:       >=1.10
+
+executable level1
+  main-is:             level1.hs
+  build-depends:       base
+  default-language:    Haskell2010
+
+executable level2
+  main-is:             level2.hs
+  build-depends:       base
+  default-language:    Haskell2010
+
+executable level3
+  main-is:             level3.hs
+  build-depends:       base, containers
+  default-language:    Haskell2010
+
+executable level4
+  main-is:             level4.hs
+  build-depends:       base
+  default-language:    Haskell2010
+
+executable level5
+  main-is:             level5.hs
+  build-depends:       base, array
+  default-language:    Haskell2010
+
+executable level6
+  main-is:             level6.hs
+  build-depends:       base, containers, array
+  default-language:    Haskell2010
+
+executable level7
+  main-is:             level7.hs
+  build-depends:       base, containers, regex-posix
+  default-language:    Haskell2010
+
+executable level8
+  main-is:             level8.hs
+  build-depends:       base, containers, mtl, regex-posix
+  default-language:    Haskell2010
+
+executable level9
+  main-is:             level9.hs
+  build-depends:       base, parsec
+  default-language:    Haskell2010
+
+executable level10
+  main-is:             level10.hs
+  build-depends:       base, split
+  default-language:    Haskell2010
+
+executable level11
+  main-is:             level11.hs
+  build-depends:       base
+  default-language:    Haskell2010
+
+executable level12
+  main-is:             level12.hs
+  build-depends:       base, containers
+  default-language:    Haskell2010
+
+executable level13
+  main-is:             level13.hs
+  build-depends:       base
+  default-language:    Haskell2010
+
+executable level14
+  main-is:             level14.hs
+  build-depends:       base, containers, split, array
+  default-language:    Haskell2010
+
+executable level15
+  main-is:             level15.hs
+  build-depends:       base
+  default-language:    Haskell2010
+
+executable level16
+  main-is:             level16.hs
+  build-depends:       base
+  default-language:    Haskell2010
+
+executable level17
+  main-is:             level17.hs
+  build-depends:       base
+  default-language:    Haskell2010
+
+executable level18
+  main-is:             level18.hs
+  build-depends:       base, containers, mtl
+  default-language:    Haskell2010
+
+executable level19
+  main-is:             level19.hs
+  build-depends:       base
+  default-language:    Haskell2010
+
+executable level20
+  main-is:             level20.hs
+  build-depends:       base, parsec, containers
+  default-language:    Haskell2010
+
+executable level21
+  main-is:             level21.hs
+  build-depends:       base, containers, array
+  default-language:    Haskell2010
+
+executable level22
+  main-is:             level22.hs
+  build-depends:       base, containers
+  default-language:    Haskell2010
+
+executable level23
+  main-is:             level23.hs
+  build-depends:       base, containers, mtl
+  default-language:    Haskell2010
+
+executable level24
+  main-is:             level24.hs
+  build-depends:       base, containers, array, mtl
+  default-language:    Haskell2010
+
+executable level25
+  main-is:             level25.hs
+  build-depends:       base, array, parsec
+  default-language:    Haskell2010

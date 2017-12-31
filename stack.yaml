@@ -1,0 +1,11 @@
+flags: {}
+packages:
+- .
+extra-deps:
+- mtl-2.2.1
+- parsec-3.1.11
+- regex-base-0.93.2
+- regex-posix-0.95.2
+- split-0.2.3.2
+- text-1.2.3.0
+resolver: ghc-8.2

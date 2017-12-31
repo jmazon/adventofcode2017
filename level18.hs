@@ -1,7 +1,5 @@
 {-# LANGUAGE FlexibleContexts #-}
 
-module Main where
-
 import Data.Char
 import Data.IORef
 import Control.Monad.RWS
@@ -12,11 +10,10 @@ import Control.Concurrent
 import Control.Concurrent.Chan
 import qualified Data.Map.Strict as M
 
-main = do
-  i <- getContents
-  mainPure1 i
-  mainIO1 i
-  main2 i
+main = do i <- getContents
+          mainPure1 i
+          mainIO1 i
+          main2 i
 
 newtype Rcv = Rcv Int deriving Show
 instance Exception Rcv

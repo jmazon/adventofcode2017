@@ -7,7 +7,7 @@ import Control.Monad       (guard)
 import qualified Data.IntSet as S
 
 main = interact $ unlines . map show . flip map [part1,part2] .
-                  flip ($) . disk . lines . head
+                  flip ($) . disk . head . lines
 
 rounds n rs = go 0 0 rs [0..n-1] where
   go p _    []   xs = rotate id ((-p) `mod` n) xs
